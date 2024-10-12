@@ -1,5 +1,4 @@
-#ifndef PERM_H
-#define PERM_H
+#pragma once
 
 #include <vector>
 
@@ -21,9 +20,10 @@ struct Perm
     Perm  operator * (Perm const & other);
     Perm  operator ~ ();
     Perm  operator ^ (int n);
+    Perm  operator >> (std::size_t n);
+    Perm  operator << (std::size_t n);
     bool  operator == (Perm const & other);
 
 private:
     std::vector<int> perm_;
 };
-#endif
