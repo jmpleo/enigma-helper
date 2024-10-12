@@ -2,6 +2,7 @@
 #include "factory.h"
 
 #include <iostream>
+#include <iterator>
 #include <string>
 
 int main(int argc, char ** argv)
@@ -56,8 +57,8 @@ int main(int argc, char ** argv)
         return 0;
     }
     */
-    for (int k = 0; k < 6; ++k) {
-        auto X = (T^(-k)) * D * (T^k);
+    for (std::size_t rotationCorner = 0; rotationCorner < ALPHABET.size(); ++rotationCorner) {
+        auto X = (T^(-rotationCorner)) * D * (T^rotationCorner);
         std::cout << factory.toString(X * R * (~X)) << "\n";
         //if ((~D0 * S0 * D0) == (~D1 * S1 * D1)) {
             //std::cout << "D rotate on " << k << " = " << g.ToStr(D0) << '\n';
